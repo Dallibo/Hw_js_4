@@ -57,7 +57,7 @@ if (first === second || first === third || second === third) {
 } 
 else {
     alert("В числе нет одинаковых цифр");
-}
+};
 
 let year = +prompt("Введите год");
 let year2 = false;
@@ -101,13 +101,92 @@ switch (currency) {
         convert = usd * 1.7;
         break;
     default:
-        alert("Неправильно выбрана валюта");
+        alert("Неправильно выбранна валюта");
         break;
 }
-if (convert !== undefined) {
-    alert(`Полученная сумма: ${convert.toFixed(2)} ${currency}`);
+alert(`Полученная сумма: ${convert.toFixed(2)}`);
+
+let numb6 = +prompt("Введите сумму покупки");
+let discount = 0;
+if (numb6 >= 200 && numb6 < 300) {
+    discount = 0.03;
+} else if (numb6 >= 300 && numb6 < 500) {
+    discount = 0.05;
+} else if (numb6 >= 500) {
+    discount = 0.07;
+}
+let result = numb6 - (numb6 * discount);
+alert(`Сумма со скидкой: ${result.toFixed(2)}`);
+
+let circleRadius = +prompt("Введите длинну круга");
+let squarePerimeter = +prompt("Введите периметр квадрата");
+let squareSide = squarePerimeter / 4;
+let circleDiameter = circleRadius * 2;
+if (circleDiameter <= squareSide) {
+    alert("Круг может поместиться в квадрат");
+} else {
+    alert("Круг не может поместиться в квадрат");
 }
 
+let score = 0;
+let answer1 = prompt("Вопрос 1: Какая столица Украины\n(a) Львов\n(b) Киев\n(c) Одесса");
+if (answer1.toLowerCase() === "b") {
+    score += 2;
+}
+let answer2 = prompt("Вопрос 2: Какой год считаеться началом 21 века\n(a) 2000\n(b) 2001\n(c) 1999");
+if (answer2.toLowerCase() === "b") {
+    score += 2;
+}
+let answer3 = prompt("Вопрос 3: Какая самая большая планета солнечной системы?\n(a) Земля\n(b) Марс\n(c) Юпитер");
+if (answer3.toLowerCase() === "c") {
+    score += 2;
+}
+alert(`Вы набрали ${score} балы`);
 
+let day1 = +prompt("Введите день:");
+let month1 = +prompt("Введите месяц:");
+let year1 = +prompt("Введите год:");
+if (day1 >=0 && day1 <=31){
+}
+if (month1 >=1 && month1 <=12){
+}
+if (year1 >0){
+}
 
+var day2 = parseInt(prompt("Введите день:"));
+var month2 = parseInt(prompt("Введите месяц:"));
+var year3 = parseInt(prompt("Введите год:"));
+var isLeapYear = false;
+if ((year3 % 4 === 0 && year3 % 100 !== 0) || year3 % 400 === 0) {
+  isLeapYear = true;
+}
+function getDaysInMonth(month, isLeapYear) {
+  var daysInMonth = 31;
 
+  if (month2 === 4 || month2 === 6 || month2 === 9 || month2 === 11) {
+    daysInMonth = 30;
+  } else if (month2 === 2) {
+    daysInMonth = isLeapYear ? 29 : 28;
+  }
+
+  return daysInMonth;
+}
+var daysInCurrentMonth = getDaysInMonth(month2, isLeapYear);
+if (day2 < 1 || day2 > daysInCurrentMonth || month2 < 1 || month2 > 12) {
+  alert("Введена некорекная дата!");
+} else {
+  if (day2 === daysInCurrentMonth) {
+    day2 = 1;
+    if (month2 === 12) {
+      month2 = 1;
+      year3++;
+    } else {
+      month2++;
+    }
+  } else {
+    day2++;
+  }
+  var nextDate = day2 + "." + month2 + "." + year3;
+  alert("Следующая дата: " + nextDate);
+  document.write("Следующая дата: " + nextDate);
+}
